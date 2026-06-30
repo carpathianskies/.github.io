@@ -3,8 +3,6 @@ site_description: An explorer's compendium of the world of Carpathian Skies
 site_url: https://carpathianskies.github.io/
 theme:
   name: material
-  logo: assets/logo.png
-  favicon: assets/logo.png
   palette:
     - scheme: slate
       primary: deep purple
