@@ -44,6 +44,8 @@ markdown_extensions:
 
 extra_css:
   - assets/fonts/fonts.css
+  - assets/book-style.css
+  - assets/animations.css
 
 nav:
   - Home: index.md
