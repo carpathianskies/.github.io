@@ -48,7 +48,7 @@ nav:
     - Overview: characters/index.md
     - The Project: characters/the-project.md
     - The Carpathia Crew: characters/crew.md
-  - Lore:
+  - Codex:
     - Overview: lore/index.md
     - The World: lore/world.md
     - History & Factions: lore/factions.md
@@ -60,8 +60,4 @@ nav:
     - Overview: locations/index.md
     - The Carpathia: locations/carpathia.md
     - The World Beyond: locations/world.md
-  - Systems & Mechanics:
-    - Overview: gameplay/index.md
-    - Choice & Consequence: gameplay/choices.md
-    - Relationships & Loyalty: gameplay/relationships.md
   - Media: media/gallery.md
