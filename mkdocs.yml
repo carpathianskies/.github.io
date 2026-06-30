@@ -3,9 +3,18 @@ site_description: An explorer's compendium of the world of Carpathian Skies
 theme:
   name: material
   palette:
-    scheme: slate
-    primary: deep purple
-    accent: amber
+    - scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
   font:
     text: Crimson Text
     code: Roboto Mono
@@ -17,7 +26,6 @@ theme:
 
 plugins:
   - search
-  - dark-mode
 
 markdown_extensions:
   - pymdownx.highlight
