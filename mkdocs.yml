@@ -1,0 +1,48 @@
+site_name: Carpathian Skies Codex
+site_description: An explorer's compendium of the world of Carpathian Skies
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: deep purple
+    accent: amber
+  font:
+    text: Crimson Text
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search
+  - dark-mode
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - footnotes
+
+nav:
+  - Home: index.md
+  - Characters:
+    - Overview: characters/index.md
+    - The Project: characters/the-project.md
+    - The Carpathia Crew: characters/crew.md
+  - Lore:
+    - Overview: lore/index.md
+    - The World: lore/world.md
+    - History & Factions: lore/factions.md
+    - The Project's Nature: lore/the-project.md
+  - Locations:
+    - Overview: locations/index.md
+    - The Carpathia: locations/carpathia.md
+    - The World Beyond: locations/world.md
+  - Systems & Mechanics:
+    - Overview: gameplay/index.md
+    - Choice & Consequence: gameplay/choices.md
+    - Relationships & Loyalty: gameplay/relationships.md
+  - Media: media/gallery.md
