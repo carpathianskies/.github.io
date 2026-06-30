@@ -37,6 +37,9 @@ nav:
     - The World: lore/world.md
     - History & Factions: lore/factions.md
     - The Project's Nature: lore/the-project.md
+  - Short Stories:
+    - Overview: stories/index.md
+    - Before the Project: stories/before-the-project.md
   - Locations:
     - Overview: locations/index.md
     - The Carpathia: locations/carpathia.md
