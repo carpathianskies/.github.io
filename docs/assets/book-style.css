@@ -1,4 +1,4 @@
-/* Book-style page with WordPress layout and design elements */
+/* Book-style page turning effect */
 :root {
   --page-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   --page-transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -39,37 +39,6 @@ body {
   transform-style: preserve-3d;
 }
 
-/* Header styling */
-.md-header {
-  border-bottom: 3px solid var(--binding-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-.md-header__title {
-  color: var(--accent-gold);
-  font-family: 'Amarante', cursive;
-  font-size: 28px;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-/* Main layout - two column structure like WordPress */
-.md-main {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 40px;
-  max-width: 1400px;
-  margin: 40px auto;
-  padding: 0 40px;
-}
-
-/* Left sidebar column */
-.md-sidebar {
-  border-right: 8px solid var(--binding-color);
-  padding-right: 30px;
-}
-
-/* Main content column */
 .md-content {
   animation: pageFlip 0.8s ease-in-out;
   box-shadow: 
@@ -87,9 +56,10 @@ body {
     radial-gradient(ellipse at center, var(--parchment) 0%, var(--parchment-alt) 100%);
   background-attachment: fixed;
   padding: 60px 40px;
+  max-width: 900px;
+  margin: 40px auto;
   position: relative;
   color: var(--text-color);
-  border-left: 8px solid var(--binding-color);
 }
 
 /* Paper texture overlay */
@@ -104,13 +74,14 @@ body {
   background-image: 
     url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" /></filter><rect width="100" height="100" fill="%23f4f1de" filter="url(%23noise)" opacity="0.03"/></svg>');
   background-size: 200px 200px;
+  box-shadow: inset 2px 0 8px rgba(0, 0, 0, 0.08);
 }
 
 /* Paper spine/binding effect */
 .md-content::after {
   content: '';
   position: absolute;
-  right: 0;
+  left: 0;
   top: 0;
   width: 3px;
   height: 100%;
@@ -118,7 +89,7 @@ body {
     rgba(139, 90, 60, 0.3) 0%, 
     rgba(139, 90, 60, 0.15) 50%, 
     rgba(139, 90, 60, 0.3) 100%);
-  box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes pageFlip {
@@ -135,78 +106,69 @@ body {
   }
 }
 
-/* Navigation - horizontal menu with separators */
+/* Navigation tabs styled as book sections */
 .md-tabs {
   border-bottom: 3px solid var(--binding-color);
-  border-top: 3px dotted var(--binding-color);
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0;
-  flex-wrap: wrap;
-  margin: 30px 0;
-  background: rgba(139, 90, 60, 0.05);
 }
 
 .md-tabs__link {
-  color: var(--heading-color);
+  color: var(--accent-gold);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-family: 'Amarante', cursive;
   position: relative;
   transition: all 0.3s ease;
-  font-size: 12px;
-  padding: 0 15px;
 }
 
 .md-tabs__link:hover {
-  color: var(--accent-gold);
+  color: var(--accent-gold-light);
   transform: translateY(-2px);
 }
 
 .md-tabs__link.md-tabs__link--active {
-  color: var(--accent-gold);
+  color: var(--accent-gold-light);
+  border-bottom: 3px solid var(--binding-color);
+  box-shadow: 0 -3px 8px rgba(212, 175, 55, 0.3) inset;
 }
 
-/* Decorative × separator between nav items */
-.md-tabs__link:not(:last-child)::after {
-  content: '×';
-  position: absolute;
-  right: -8px;
-  color: var(--heading-color);
-  font-weight: bold;
-  font-size: 18px;
+/* Sidebar styling */
+.md-sidebar {
+  border-right: 3px solid var(--binding-color);
 }
 
-/* Sidebar title styling - boxed like WordPress */
 .md-nav__title {
-  color: var(--heading-dark);
+  color: var(--accent-gold);
   font-family: 'Amarante', cursive;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 15px;
-  background: rgba(139, 90, 60, 0.1);
-  border-left: 8px solid var(--binding-color);
-  border-right: 8px solid var(--binding-color);
-  margin: 30px 0 15px 0;
-  text-align: center;
-  line-height: 1;
 }
 
 .md-nav__link {
   transition: all 0.3s ease;
-  padding: 8px 12px;
 }
 
 .md-nav__link:hover,
 .md-nav__link.md-nav__link--active {
   color: var(--accent-gold);
-  padding-left: 20px;
+  padding-left: 16px;
   border-left: 3px solid var(--binding-color);
+}
+
+/* Header */
+.md-header {
+  border-bottom: 3px solid var(--binding-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.md-header__title {
+  color: var(--accent-gold);
+  font-family: 'Amarante', cursive;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 /* Headings */
@@ -216,39 +178,12 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 2px solid var(--accent-gold);
   padding-bottom: 10px;
   margin-top: 30px;
-  font-weight: bold;
 }
 
 h1 {
   color: var(--heading-dark);
   font-size: 32px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  line-height: 1;
-}
-
-h2 {
-  font-size: 20px;
-  text-align: center;
-  border: none;
-  padding: 0;
-}
-
-/* Content boxes - WordPress style with borders */
-.content-box {
-  border-left: 8px solid var(--binding-color);
-  border-right: 8px solid var(--binding-color);
-  padding: 20px 30px;
-  margin: 30px 0;
-  background: rgba(139, 90, 60, 0.05);
-}
-
-.content-box h2,
-.content-box h3 {
-  border: none;
-  padding: 0;
-  margin: 0 0 15px 0;
-  text-align: left;
 }
 
 /* Links */
@@ -264,16 +199,14 @@ a:hover {
   border-bottom-color: var(--heading-dark);
 }
 
-/* Code blocks */
+/* Code blocks - parchment style */
 .highlight {
   background: var(--parchment-alt);
   border-left: 4px solid var(--binding-color);
-  border-right: 4px solid var(--binding-color);
   border-radius: 0;
   padding: 15px;
   color: var(--text-color);
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
-  margin: 15px 0;
 }
 
 code {
@@ -282,29 +215,28 @@ code {
   font-family: 'Roboto Mono', monospace;
 }
 
-/* Blockquotes - manuscript notes style */
+/* Blockquotes - like manuscript notes */
 blockquote {
-  border-left: 8px solid var(--binding-color);
-  border-right: 8px solid var(--binding-color);
-  padding: 20px;
+  border-left: 4px solid var(--binding-color);
+  padding-left: 20px;
   color: #555;
   font-style: italic;
-  margin: 30px 0;
+  margin-left: 0;
   background: rgba(139, 90, 60, 0.1);
+  padding: 15px;
 }
 
 /* Search box */
 .md-search__input {
   color: var(--accent-gold);
   border: 2px solid var(--binding-color);
-  background: #f5f5f5;
 }
 
 .md-search__input::placeholder {
-  color: #999;
+  color: #666;
 }
 
-/* Paragraph text */
+/* Paragraph text color */
 p {
   color: var(--text-color);
   line-height: 1.8;
@@ -313,21 +245,17 @@ p {
 /* List items */
 li {
   color: var(--text-color);
-  line-height: 1.8;
 }
 
 /* Tables */
 table {
   background: var(--parchment);
   border-collapse: collapse;
-  margin: 20px 0;
-  border: 2px solid var(--binding-color);
 }
 
 thead {
   background: var(--parchment-alt);
   color: var(--heading-dark);
-  border-bottom: 2px solid var(--binding-color);
 }
 
 td, th {
@@ -340,97 +268,26 @@ tr:hover {
   background: rgba(139, 90, 60, 0.05);
 }
 
-/* Horizontal rule - decorative separator */
+/* Horizontal rule */
 hr {
   border: none;
   height: 2px;
   background: linear-gradient(to right, transparent, var(--binding-color), transparent);
-  margin: 40px 0;
-}
-
-/* Decorative spacing line */
-.decorative-line {
-  height: 1px;
-  background: linear-gradient(to right, 
-    transparent 0%, 
-    var(--binding-color) 10%, 
-    var(--binding-color) 90%, 
-    transparent 100%);
   margin: 30px 0;
 }
 
-/* Footer styling */
+/* Footer positioning */
 .md-footer {
   border-top: 3px solid var(--binding-color);
   font-family: 'Amarante', cursive;
-  text-align: center;
-  padding: 30px;
-  margin-top: 60px;
 }
 
 .md-footer__link {
   color: var(--accent-gold);
   transition: all 0.3s ease;
-  margin: 0 15px;
 }
 
 .md-footer__link:hover {
   color: var(--accent-gold-light);
   transform: translateX(5px);
-}
-
-/* Responsive - stack layout on small screens */
-@media (max-width: 1024px) {
-  .md-main {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .md-sidebar {
-    border-right: none;
-    border-bottom: 8px solid var(--binding-color);
-    padding-right: 0;
-    padding-bottom: 30px;
-  }
-
-  .md-content {
-    border-left: none;
-    border-top: 8px solid var(--binding-color);
-  }
-}
-
-@media (max-width: 768px) {
-  .md-tabs {
-    gap: 5px;
-  }
-
-  .md-tabs__link {
-    font-size: 11px;
-    padding: 0 8px;
-  }
-
-  .md-tabs__link:not(:last-child)::after {
-    right: -4px;
-    font-size: 14px;
-  }
-
-  .md-header__title {
-    font-size: 20px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-
-  .md-content {
-    padding: 40px 20px;
-  }
-
-  .content-box {
-    padding: 15px 20px;
-  }
 }
