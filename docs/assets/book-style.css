@@ -34,7 +34,6 @@
 body {
   background: var(--book-bg);
   overflow-x: hidden;
-  font-family: 'Jackwrite', cursive;
 }
 
 .md-container {
@@ -52,11 +51,10 @@ body {
 
 .md-header__title {
   color: var(--accent-gold);
-  font-family: 'Overused Grotesk', sans-serif;
+  font-family: 'Amarante', cursive;
   font-size: 28px;
-  font-weight: 600;
+  font-weight: bold;
   letter-spacing: 2px;
-  text-transform: uppercase;
 }
 
 /* Main content - book page styling */
@@ -141,7 +139,7 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-family: 'Overused Grotesk', sans-serif;
+  font-family: 'Amarante', cursive;
   position: relative;
   transition: all 0.3s ease;
   font-size: 12px;
@@ -175,9 +173,9 @@ body {
 
 .md-nav__title {
   color: var(--accent-gold);
-  font-family: 'Overused Grotesk', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
+  font-family: 'Amarante', cursive;
+  font-size: 18px;
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 15px;
@@ -189,7 +187,6 @@ body {
 
 .md-nav__link {
   transition: all 0.3s ease;
-  font-family: 'Jackwrite', cursive;
 }
 
 .md-nav__link:hover,
@@ -199,29 +196,20 @@ body {
   border-left: 3px solid var(--binding-color);
 }
 
-/* Headings - WordPress typography */
+/* Headings - original Amarante font */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Overused Grotesk', sans-serif;
+  font-family: 'Amarante', cursive;
   color: var(--heading-color);
   border-bottom: 2px solid var(--accent-gold);
   padding-bottom: 10px;
   margin-top: 30px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-weight: bold;
 }
 
 h1 {
   color: var(--heading-dark);
-  font-size: 24px;
+  font-size: 32px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  line-height: 1;
-}
-
-h2 {
-  font-size: 18px;
-  text-align: center;
 }
 
 /* Links */
@@ -262,7 +250,6 @@ blockquote {
   font-style: italic;
   margin-left: 0;
   background: rgba(139, 90, 60, 0.1);
-  font-family: 'Jackwrite', cursive;
 }
 
 /* Search box */
@@ -270,7 +257,6 @@ blockquote {
   color: var(--accent-gold);
   border: 2px solid var(--binding-color);
   background: #2a2a2a;
-  font-family: 'Jackwrite', cursive;
 }
 
 .md-search__input::placeholder {
@@ -281,14 +267,11 @@ blockquote {
 p {
   color: var(--text-color);
   line-height: 1.8;
-  font-family: 'Jackwrite', cursive;
-  font-size: 1rem;
 }
 
 /* List items */
 li {
   color: var(--text-color);
-  font-family: 'Jackwrite', cursive;
 }
 
 /* Tables */
@@ -318,7 +301,6 @@ hr {
   height: 2px;
   background: linear-gradient(to right, transparent, var(--binding-color), transparent);
   margin: 30px 0;
-  position: relative;
 }
 
 /* Section styling - WordPress content boxes */
@@ -339,14 +321,7 @@ hr {
 /* Footer styling */
 .md-footer {
   border-top: 3px solid var(--binding-color);
-  font-family: 'Overused Grotesk', sans-serif;
-  background: #1a1a1a;
-  color: #999;
-  text-align: center;
-  padding: 20px;
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-family: 'Amarante', cursive;
 }
 
 .md-footer__link {
@@ -380,10 +355,6 @@ hr {
   }
 
   h1 {
-    font-size: 18px;
-  }
-
-  h2 {
-    font-size: 16px;
+    font-size: 24px;
   }
 }
