@@ -1,4 +1,4 @@
-/* Book-style page with WordPress design elements integration */
+/* Book-style page with WordPress layout and design elements */
 :root {
   --page-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   --page-transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -10,8 +10,6 @@
   --accent-gold: #d4af37;
   --accent-gold-light: #ffd700;
   --binding-color: #8b5a3c;
-  --wp-primary: #19191ae6;
-  --wp-contrast: #19191ad9;
 }
 
 /* Light mode */
@@ -41,12 +39,10 @@ body {
   transform-style: preserve-3d;
 }
 
-/* Header styling - WordPress inspired layout */
+/* Header styling */
 .md-header {
   border-bottom: 3px solid var(--binding-color);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  padding: 20px var(--wp--preset--spacing--40, 2rem);
-  background: linear-gradient(to bottom, #3a3a3a 0%, #2a2a2a 100%);
 }
 
 .md-header__title {
@@ -57,7 +53,23 @@ body {
   letter-spacing: 2px;
 }
 
-/* Main content - book page styling */
+/* Main layout - two column structure like WordPress */
+.md-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 40px;
+}
+
+/* Left sidebar column */
+.md-sidebar {
+  border-right: 8px solid var(--binding-color);
+  padding-right: 30px;
+}
+
+/* Main content column */
 .md-content {
   animation: pageFlip 0.8s ease-in-out;
   box-shadow: 
@@ -75,10 +87,9 @@ body {
     radial-gradient(ellipse at center, var(--parchment) 0%, var(--parchment-alt) 100%);
   background-attachment: fixed;
   padding: 60px 40px;
-  max-width: 900px;
-  margin: 40px auto;
   position: relative;
   color: var(--text-color);
+  border-left: 8px solid var(--binding-color);
 }
 
 /* Paper texture overlay */
@@ -99,7 +110,7 @@ body {
 .md-content::after {
   content: '';
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0;
   width: 3px;
   height: 100%;
@@ -107,7 +118,7 @@ body {
     rgba(139, 90, 60, 0.3) 0%, 
     rgba(139, 90, 60, 0.15) 50%, 
     rgba(139, 90, 60, 0.3) 100%);
-  box-shadow: inset 1px 0 2px rgba(0, 0, 0, 0.2);
+  box-shadow: inset -1px 0 2px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes pageFlip {
@@ -124,18 +135,22 @@ body {
   }
 }
 
-/* Navigation tabs - decorative WordPress style */
+/* Navigation - horizontal menu with separators */
 .md-tabs {
   border-bottom: 3px solid var(--binding-color);
-  padding: 15px 20px;
-  background: linear-gradient(to bottom, #3a3a3a 0%, #2a2a2a 100%);
+  border-top: 3px dotted var(--binding-color);
+  padding: 20px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  margin: 30px 0;
+  background: rgba(139, 90, 60, 0.05);
 }
 
 .md-tabs__link {
-  color: var(--accent-gold);
+  color: var(--heading-color);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -143,38 +158,33 @@ body {
   position: relative;
   transition: all 0.3s ease;
   font-size: 12px;
+  padding: 0 15px;
 }
 
 .md-tabs__link:hover {
-  color: var(--accent-gold-light);
+  color: var(--accent-gold);
   transform: translateY(-2px);
 }
 
 .md-tabs__link.md-tabs__link--active {
-  color: var(--accent-gold-light);
-  border-bottom: 3px solid var(--binding-color);
-  box-shadow: 0 -3px 8px rgba(212, 175, 55, 0.3) inset;
-  padding-bottom: 5px;
+  color: var(--accent-gold);
 }
 
-/* Decorative separator between nav items */
+/* Decorative × separator between nav items */
 .md-tabs__link:not(:last-child)::after {
   content: '×';
   position: absolute;
-  right: -12px;
-  color: var(--accent-gold);
+  right: -8px;
+  color: var(--heading-color);
   font-weight: bold;
-}
-
-/* Sidebar styling */
-.md-sidebar {
-  border-right: 3px solid var(--binding-color);
-}
-
-.md-nav__title {
-  color: var(--accent-gold);
-  font-family: 'Amarante', cursive;
   font-size: 18px;
+}
+
+/* Sidebar title styling - boxed like WordPress */
+.md-nav__title {
+  color: var(--heading-dark);
+  font-family: 'Amarante', cursive;
+  font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -182,21 +192,24 @@ body {
   background: rgba(139, 90, 60, 0.1);
   border-left: 8px solid var(--binding-color);
   border-right: 8px solid var(--binding-color);
-  margin: 20px 0;
+  margin: 30px 0 15px 0;
+  text-align: center;
+  line-height: 1;
 }
 
 .md-nav__link {
   transition: all 0.3s ease;
+  padding: 8px 12px;
 }
 
 .md-nav__link:hover,
 .md-nav__link.md-nav__link--active {
   color: var(--accent-gold);
-  padding-left: 16px;
+  padding-left: 20px;
   border-left: 3px solid var(--binding-color);
 }
 
-/* Headings - original Amarante font */
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Amarante', cursive;
   color: var(--heading-color);
@@ -210,6 +223,32 @@ h1 {
   color: var(--heading-dark);
   font-size: 32px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 20px;
+  text-align: center;
+  border: none;
+  padding: 0;
+}
+
+/* Content boxes - WordPress style with borders */
+.content-box {
+  border-left: 8px solid var(--binding-color);
+  border-right: 8px solid var(--binding-color);
+  padding: 20px 30px;
+  margin: 30px 0;
+  background: rgba(139, 90, 60, 0.05);
+}
+
+.content-box h2,
+.content-box h3 {
+  border: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+  text-align: left;
 }
 
 /* Links */
@@ -225,14 +264,16 @@ a:hover {
   border-bottom-color: var(--heading-dark);
 }
 
-/* Code blocks - parchment style */
+/* Code blocks */
 .highlight {
   background: var(--parchment-alt);
   border-left: 4px solid var(--binding-color);
+  border-right: 4px solid var(--binding-color);
   border-radius: 0;
   padding: 15px;
   color: var(--text-color);
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+  margin: 15px 0;
 }
 
 code {
@@ -241,14 +282,14 @@ code {
   font-family: 'Roboto Mono', monospace;
 }
 
-/* Blockquotes - like manuscript notes */
+/* Blockquotes - manuscript notes style */
 blockquote {
-  border-left: 4px solid var(--binding-color);
+  border-left: 8px solid var(--binding-color);
   border-right: 8px solid var(--binding-color);
-  padding: 15px 20px;
+  padding: 20px;
   color: #555;
   font-style: italic;
-  margin-left: 0;
+  margin: 30px 0;
   background: rgba(139, 90, 60, 0.1);
 }
 
@@ -256,14 +297,14 @@ blockquote {
 .md-search__input {
   color: var(--accent-gold);
   border: 2px solid var(--binding-color);
-  background: #2a2a2a;
+  background: #f5f5f5;
 }
 
 .md-search__input::placeholder {
-  color: #666;
+  color: #999;
 }
 
-/* Paragraph text color */
+/* Paragraph text */
 p {
   color: var(--text-color);
   line-height: 1.8;
@@ -272,17 +313,21 @@ p {
 /* List items */
 li {
   color: var(--text-color);
+  line-height: 1.8;
 }
 
 /* Tables */
 table {
   background: var(--parchment);
   border-collapse: collapse;
+  margin: 20px 0;
+  border: 2px solid var(--binding-color);
 }
 
 thead {
   background: var(--parchment-alt);
   color: var(--heading-dark);
+  border-bottom: 2px solid var(--binding-color);
 }
 
 td, th {
@@ -300,33 +345,33 @@ hr {
   border: none;
   height: 2px;
   background: linear-gradient(to right, transparent, var(--binding-color), transparent);
-  margin: 30px 0;
+  margin: 40px 0;
 }
 
-/* Section styling - WordPress content boxes */
-.section-box {
-  border-left: 8px solid var(--binding-color);
-  border-right: 8px solid var(--binding-color);
-  padding: 20px 30px;
+/* Decorative spacing line */
+.decorative-line {
+  height: 1px;
+  background: linear-gradient(to right, 
+    transparent 0%, 
+    var(--binding-color) 10%, 
+    var(--binding-color) 90%, 
+    transparent 100%);
   margin: 30px 0;
-  background: rgba(139, 90, 60, 0.05);
-}
-
-.section-box h2 {
-  border: none;
-  padding: 0;
-  margin-top: 0;
 }
 
 /* Footer styling */
 .md-footer {
   border-top: 3px solid var(--binding-color);
   font-family: 'Amarante', cursive;
+  text-align: center;
+  padding: 30px;
+  margin-top: 60px;
 }
 
 .md-footer__link {
   color: var(--accent-gold);
   transition: all 0.3s ease;
+  margin: 0 15px;
 }
 
 .md-footer__link:hover {
@@ -334,20 +379,39 @@ hr {
   transform: translateX(5px);
 }
 
-/* Responsive adjustments */
+/* Responsive - stack layout on small screens */
+@media (max-width: 1024px) {
+  .md-main {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .md-sidebar {
+    border-right: none;
+    border-bottom: 8px solid var(--binding-color);
+    padding-right: 0;
+    padding-bottom: 30px;
+  }
+
+  .md-content {
+    border-left: none;
+    border-top: 8px solid var(--binding-color);
+  }
+}
+
 @media (max-width: 768px) {
   .md-tabs {
-    flex-wrap: wrap;
-    gap: 10px;
+    gap: 5px;
   }
 
   .md-tabs__link {
     font-size: 11px;
+    padding: 0 8px;
   }
 
   .md-tabs__link:not(:last-child)::after {
-    right: -8px;
-    font-size: 12px;
+    right: -4px;
+    font-size: 14px;
   }
 
   .md-header__title {
@@ -356,5 +420,17 @@ hr {
 
   h1 {
     font-size: 24px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .md-content {
+    padding: 40px 20px;
+  }
+
+  .content-box {
+    padding: 15px 20px;
   }
 }
