@@ -1,4 +1,4 @@
-/* Book-style page turning effect */
+/* Book-style page with WordPress design elements integration */
 :root {
   --page-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   --page-transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -10,6 +10,8 @@
   --accent-gold: #d4af37;
   --accent-gold-light: #ffd700;
   --binding-color: #8b5a3c;
+  --wp-primary: #19191ae6;
+  --wp-contrast: #19191ad9;
 }
 
 /* Light mode */
@@ -32,6 +34,7 @@
 body {
   background: var(--book-bg);
   overflow-x: hidden;
+  font-family: 'Jackwrite', cursive;
 }
 
 .md-container {
@@ -39,6 +42,24 @@ body {
   transform-style: preserve-3d;
 }
 
+/* Header styling - WordPress inspired layout */
+.md-header {
+  border-bottom: 3px solid var(--binding-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  padding: 20px var(--wp--preset--spacing--40, 2rem);
+  background: linear-gradient(to bottom, #3a3a3a 0%, #2a2a2a 100%);
+}
+
+.md-header__title {
+  color: var(--accent-gold);
+  font-family: 'Overused Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Main content - book page styling */
 .md-content {
   animation: pageFlip 0.8s ease-in-out;
   box-shadow: 
@@ -105,9 +126,14 @@ body {
   }
 }
 
-/* Navigation tabs styled as book sections */
+/* Navigation tabs - decorative WordPress style */
 .md-tabs {
   border-bottom: 3px solid var(--binding-color);
+  padding: 15px 20px;
+  background: linear-gradient(to bottom, #3a3a3a 0%, #2a2a2a 100%);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .md-tabs__link {
@@ -115,9 +141,10 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-family: 'Amarante', cursive;
+  font-family: 'Overused Grotesk', sans-serif;
   position: relative;
   transition: all 0.3s ease;
+  font-size: 12px;
 }
 
 .md-tabs__link:hover {
@@ -129,6 +156,16 @@ body {
   color: var(--accent-gold-light);
   border-bottom: 3px solid var(--binding-color);
   box-shadow: 0 -3px 8px rgba(212, 175, 55, 0.3) inset;
+  padding-bottom: 5px;
+}
+
+/* Decorative separator between nav items */
+.md-tabs__link:not(:last-child)::after {
+  content: '×';
+  position: absolute;
+  right: -12px;
+  color: var(--accent-gold);
+  font-weight: bold;
 }
 
 /* Sidebar styling */
@@ -138,15 +175,21 @@ body {
 
 .md-nav__title {
   color: var(--accent-gold);
-  font-family: 'Amarante', cursive;
-  font-size: 18px;
-  font-weight: bold;
+  font-family: 'Overused Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
+  padding: 15px;
+  background: rgba(139, 90, 60, 0.1);
+  border-left: 8px solid var(--binding-color);
+  border-right: 8px solid var(--binding-color);
+  margin: 20px 0;
 }
 
 .md-nav__link {
   transition: all 0.3s ease;
+  font-family: 'Jackwrite', cursive;
 }
 
 .md-nav__link:hover,
@@ -156,33 +199,29 @@ body {
   border-left: 3px solid var(--binding-color);
 }
 
-/* Header */
-.md-header {
-  border-bottom: 3px solid var(--binding-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-.md-header__title {
-  color: var(--accent-gold);
-  font-family: 'Amarante', cursive;
-  font-size: 28px;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-/* Headings */
+/* Headings - WordPress typography */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Amarante', cursive;
+  font-family: 'Overused Grotesk', sans-serif;
   color: var(--heading-color);
   border-bottom: 2px solid var(--accent-gold);
   padding-bottom: 10px;
   margin-top: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 h1 {
   color: var(--heading-dark);
-  font-size: 32px;
+  font-size: 24px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 18px;
+  text-align: center;
 }
 
 /* Links */
@@ -217,18 +256,21 @@ code {
 /* Blockquotes - like manuscript notes */
 blockquote {
   border-left: 4px solid var(--binding-color);
-  padding-left: 20px;
+  border-right: 8px solid var(--binding-color);
+  padding: 15px 20px;
   color: #555;
   font-style: italic;
   margin-left: 0;
   background: rgba(139, 90, 60, 0.1);
-  padding: 15px;
+  font-family: 'Jackwrite', cursive;
 }
 
 /* Search box */
 .md-search__input {
   color: var(--accent-gold);
   border: 2px solid var(--binding-color);
+  background: #2a2a2a;
+  font-family: 'Jackwrite', cursive;
 }
 
 .md-search__input::placeholder {
@@ -239,11 +281,14 @@ blockquote {
 p {
   color: var(--text-color);
   line-height: 1.8;
+  font-family: 'Jackwrite', cursive;
+  font-size: 1rem;
 }
 
 /* List items */
 li {
   color: var(--text-color);
+  font-family: 'Jackwrite', cursive;
 }
 
 /* Tables */
@@ -267,18 +312,41 @@ tr:hover {
   background: rgba(139, 90, 60, 0.05);
 }
 
-/* Horizontal rule */
+/* Horizontal rule - decorative separator */
 hr {
   border: none;
   height: 2px;
   background: linear-gradient(to right, transparent, var(--binding-color), transparent);
   margin: 30px 0;
+  position: relative;
 }
 
-/* Footer positioning */
+/* Section styling - WordPress content boxes */
+.section-box {
+  border-left: 8px solid var(--binding-color);
+  border-right: 8px solid var(--binding-color);
+  padding: 20px 30px;
+  margin: 30px 0;
+  background: rgba(139, 90, 60, 0.05);
+}
+
+.section-box h2 {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+}
+
+/* Footer styling */
 .md-footer {
   border-top: 3px solid var(--binding-color);
-  font-family: 'Amarante', cursive;
+  font-family: 'Overused Grotesk', sans-serif;
+  background: #1a1a1a;
+  color: #999;
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .md-footer__link {
@@ -289,4 +357,33 @@ hr {
 .md-footer__link:hover {
   color: var(--accent-gold-light);
   transform: translateX(5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .md-tabs {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .md-tabs__link {
+    font-size: 11px;
+  }
+
+  .md-tabs__link:not(:last-child)::after {
+    right: -8px;
+    font-size: 12px;
+  }
+
+  .md-header__title {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
 }
